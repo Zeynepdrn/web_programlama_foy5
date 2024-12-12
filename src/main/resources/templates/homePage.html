@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kullanıcı Listesi</title>
+</head>
+<body>
+    <h1>Kullanıcı Listesi</h1>
+    <a href="/users/add">Kullanıcı Ekle</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>İsim</th>
+            <th>E-posta</th>
+            <th>İşlemler</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.email}"></td>
+            <td>
+                <a th:href="@{/users/edit/{id}(id=${user.id})}">Düzenle</a> |
+                <a th:href="@{/users/delete/{id}(id=${user.id})}">Sil</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
